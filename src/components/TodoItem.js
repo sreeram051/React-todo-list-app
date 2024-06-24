@@ -44,14 +44,18 @@ const TodoItem = (props) => {
         onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
       />
       <div className="btns">
-        <motion.button
-          whileHover={{ scale: 1.4 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => changeFocus()}
-        >
-          {" "}
-          <AiFillEdit />{" "}
-        </motion.button>
+        {
+          item.completed === false && (
+            <motion.button
+              whileHover={{ scale: 1.4 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => changeFocus()}
+            >
+              {" "}
+              <AiFillEdit />{" "}
+            </motion.button>
+          )
+        }
         {item.completed === false && (
           <motion.button
             whileHover={{ scale: 1.4 }}
